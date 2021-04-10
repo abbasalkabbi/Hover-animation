@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="author" content="abbas">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hover</title>
+</head>
+<!--Style-->
+<style>
+     *{padding:0;margin: 0; box-sizing: border-box;}
+    /*variable  color*/
+    :root{
+        --color:#1e90ff;
+    }
+    /*Style for lift */
+    
+    .left button{
+  
+   border: none;
+   color: white;
+   padding: 15px 32px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   cursor: pointer;
+    }
+    .left button:first-of-type{
+        background-color: red;
+    }
+    .left button:nth-of-type(2){
+        background-color: #FFFF00;
+    }
+    .left button:last-of-type{
+        background-color: #FFC0CB;
+    }
+    
+  
+   /*Style for title */
+   .title{
+      
+       width: fit-content;
+       position: relative;
+      font-size: 5rem;
+      cursor: pointer;
+      margin: 50px auto;
+   }
+   .title::before{
+       content:"";
+        display: block; 
+        top: 0;left: 0;right: 0;bottom: 0;
+        background-color: var(--color);
+        z-index: -1;
+        transition: transform .3s ease;
+        position:absolute;
+        inset: 0 0 0 0;
+        transform: scaleX(0);
+        transform-origin: bottom right;
+   }
+   .title:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+</style>
+<!--End style -->
+<!--content-->
+<body>
+    <div class="left">
+        <button onclick="color(1)">red</button>
+        <button onclick="color(2)">yellow</button>
+        <button onclick="color(3)">pink</button>
+       
+    </div>
+    <h1 class="title">Hover</h1>
+</body>
+<!--End content-->
+<!--code in javascript-->
+<script >
+    /*hover.style.setProperty('--color', 'lightblue')*/
+    var hover=document.querySelector(':root');
+    function color(number){
+        switch(number) {
+  case 1:
+     hover.style.setProperty('--color', 'red')
+    break;
+  case 2:
+     hover.style.setProperty('--color', '#FFFF00')
+     break;
+  case 3:
+     hover.style.setProperty('--color', '#FFC0CB')
+    
+    break;
+  default:
+    hover.style.setProperty('--color', '#1e90ff')
+}
+    }
+</script>
+</html>
